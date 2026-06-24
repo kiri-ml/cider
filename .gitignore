@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Vite / Vitest
+.vite/
+.vite-temp/
+coverage/
+*.lcov
+
+# Cloudflare / Wrangler
+.wrangler/
+.wrangler-logs/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+*.local
+cloud-deployment-credentials.md
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Python helper-script caches
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local agent metadata
+.agents/
+.codex/

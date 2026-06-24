@@ -1,0 +1,1160 @@
+{
+  "version": 1,
+  "slices_dir": "web/data/tests/slices",
+  "start_x": 57,
+  "end_x": null,
+  "results": [
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-08",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-09",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-10",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-11",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-12",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-13",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-14",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-15",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-16",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-18",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-19",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-20",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-21",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-23",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-24",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-26",
+      "text": "Peke used Gelt Chocolate",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-30",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-27__line-36",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-02",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-05",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-06",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-07",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-10",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-11",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-12",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-13",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-14",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-15",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-18",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-20",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-23",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-24",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-31",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-32",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-35",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-08-48__line-36",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-07",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-08",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-09",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-10",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-11",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-12",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-13",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-14",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-15",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-17",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-18",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-19",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-20",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-22",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-23",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-25",
+      "text": "Peke used Gelt Chocolate",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-29",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-16__line-35",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-08",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-10",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-11",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-12",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-13",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-14",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-15",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-16",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-17",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-18",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-19",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-20",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-21",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-22",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-24",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-26",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-27",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-09-48__line-32",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-08",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-09",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-10",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-11",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-12",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-13",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-14",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-15",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-16",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-18",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-19",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-20",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-21",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-23",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-24",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-26",
+      "text": "Peke used Gelt Chocolate",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-30",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-08__line-36",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-03",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-06",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-07",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-08",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-11",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-12",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-13",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-14",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-15",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-16",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-19",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-21",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-24",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-25",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-32",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-33",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-36",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-30__line-37",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-51__line-23",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-08",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-16",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-17",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-18",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-19",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-20",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-21",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-22",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-23",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-26",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-27",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-29",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-30",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-10-58__line-33",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-08",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-10",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-11",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-17",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-19",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-07__line-38",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-15__line-12",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-15__line-14",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-15__line-36",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-23__line-07",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-23__line-12",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-23__line-35",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-23__line-36",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-11",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-12",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-16",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-17",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-18",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-19",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-21",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-22",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-27",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-28",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-29",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-34",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-34__line-35",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-06",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-08",
+      "text": "aSix used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-09",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-12",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-35",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-45__line-37",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-56__line-13",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-56__line-15",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-11-56__line-19",
+      "text": "Ewww used Onyx Apple",
+      "start_x": 57,
+      "end_x": 186
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-03__line-10",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-03__line-28",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-03",
+      "text": "Beizhuanz used Onyx Apple",
+      "start_x": 57,
+      "end_x": 207
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-05",
+      "text": "SamLo used Onyx Apple",
+      "start_x": 57,
+      "end_x": 191
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-11",
+      "text": "Bassam used Onyx Apple",
+      "start_x": 57,
+      "end_x": 198
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-12",
+      "text": "ZOOMi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 188
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-16",
+      "text": "Shedinja used Onyx Apple",
+      "start_x": 57,
+      "end_x": 200
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-18",
+      "text": "PalyChi used Onyx Apple",
+      "start_x": 57,
+      "end_x": 193
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-20",
+      "text": "PiratePinner used Onyx Apple",
+      "start_x": 57,
+      "end_x": 219
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-22",
+      "text": "SuperDragon used Onyx Apple",
+      "start_x": 57,
+      "end_x": 225
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-28",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-31",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-34",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-23__line-38",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-37__line-03",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-37__line-15",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-37__line-27",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-37__line-34",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-37__line-37",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-01",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-04",
+      "text": "JoJoni used Onyx Apple",
+      "start_x": 57,
+      "end_x": 187
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-07",
+      "text": "Riro used Onyx Apple",
+      "start_x": 57,
+      "end_x": 174
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-11",
+      "text": "Socoli used Onyx Apple",
+      "start_x": 57,
+      "end_x": 185
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-23",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-50__line-35",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-58__line-02",
+      "text": "CutePaws used Onyx Apple",
+      "start_x": 57,
+      "end_x": 208
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-58__line-14",
+      "text": "Soyourken used Onyx Apple",
+      "start_x": 57,
+      "end_x": 209
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-58__line-21",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-58__line-24",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-12-58__line-30",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-13-06__line-01",
+      "text": "Peke used Onyx Apple",
+      "start_x": 57,
+      "end_x": 179
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-13-06__line-04",
+      "text": "Legoshi420 used Onyx Apple",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-13-06__line-10",
+      "text": "qwertylL used Ssiws Cheese",
+      "start_x": 57,
+      "end_x": 217
+    },
+    {
+      "id": "MapleLegends 26-04-2026 23-13-06__line-21",
+      "text": "Viona used Onyx Apple",
+      "start_x": 57,
+      "end_x": 182
+    }
+  ]
+}

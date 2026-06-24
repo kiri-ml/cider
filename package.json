@@ -1,0 +1,44 @@
+{
+  "name": "cider-web",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name cider",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "generate:glyph-slices": "node scripts/slice-glyph.mjs",
+    "generate:glyph-atlas": "node scripts/generate_glyph_atlas.ts",
+    "generate:glyphs": "npm run generate:glyph-slices && npm run generate:glyph-atlas",
+    "glyph:self-test": "npm run generate:glyph-atlas && tsx scripts/glyph_decoder.ts self-test",
+    "glyph:trace": "npm run generate:glyph-atlas && tsx scripts/glyph_decoder.ts trace",
+    "glyph:decode": "tsx scripts/glyph_decoder.ts decode",
+    "glyph:benchmark": "tsx scripts/glyph_decoder.ts benchmark",
+    "glyph:fuzz": "tsx scripts/glyph_decoder_fuzz.ts",
+    "ocr:line": "tsx scripts/ocr_line.ts"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "latest",
+    "sharp": "latest",
+    "tsx": "^4.21.0",
+    "vitest": "^4.1.5",
+    "wrangler": "^4.104.0"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
