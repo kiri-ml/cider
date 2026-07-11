@@ -18,3 +18,7 @@ npm run build
 The app uses one resumable local session. Imported image blobs and cropped slice blobs are stored in IndexedDB; lightweight session metadata is stored in localStorage.
 
 OCR runs locally in the browser against cropped in-memory line pixels.
+
+## Decoder notes
+
+- [Glyph overhang](docs/glyph_overhang.md) describes atlas detection, sequence scoring, current limitations, and future decoder work.

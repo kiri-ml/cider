@@ -32,6 +32,13 @@ export type BuildGlyphAtlasOptions = {
   charset?: string;
 };
 
+/** Approximate two glyph contributions that overlap in the same pixel. */
+export function blendGlyphWeights(a: number, b: number): number {
+  const high = Math.max(a, b);
+  const low = Math.min(a, b);
+  return Math.min(1, high + low * 0.5);
+}
+
 /** Decode a base64 string into a Uint8Array.
  *
  * The generated atlas stores weighted templates in base64 to keep the generated

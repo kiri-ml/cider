@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import sharp from "sharp";
-import { buildGlyphAtlas } from "./atlas";
-import { CHARSET_SPACED_ALPHANUMERIC, CHARSET_TIMESTAMP } from "./constants";
+import { blendGlyphWeights, buildGlyphAtlas, type RawGlyphSpec } from "./atlas";
+import { CHARSET_SPACED_ALPHANUMERIC, CHARSET_TIMESTAMP, GLYPH_HEIGHT } from "./constants";
 import { compileDecodeToken, decodeLine } from "./decoder";
 import { RAW_GLYPHS } from "./generated/glyph_atlas_cleartype_rgb";
 import { RAW_GLYPHS as RAW_GLYPHS_CLEARTYPE_BGR } from "./generated/glyph_atlas_cleartype_bgr";
@@ -17,6 +17,47 @@ const cleartypeBgrTimestampAtlas = buildGlyphAtlas(RAW_GLYPHS_CLEARTYPE_BGR, { c
 const cleartypeBgrMessageAtlas = buildGlyphAtlas(RAW_GLYPHS_CLEARTYPE_BGR, { charset: CHARSET_SPACED_ALPHANUMERIC });
 
 describe("decodeLine synthetic slices", () => {
+  it("approximates measured overlapping glyph intensities", () => {
+    const blendByte = (a: number, b: number) => Math.round(blendGlyphWeights(a / 255, b / 255) * 255);
+    expect(blendByte(0x1b, 0)).toBe(0x1b);
+    expect(blendByte(0x1b, 0x1b)).toBe(0x29);
+    expect(blendByte(0x1b, 0x67)).toBe(0x75);
+  });
+
+  it("uses right-overhang evidence to resolve an otherwise identical beam", () => {
+    const raw: RawGlyphSpec[] = [
+      rawGlyph("B", 1, [255]),
+      rawGlyph("A", 2, [255, 128]),
+      rawGlyph("C", 1, [0, 255]),
+    ];
+    const renderAtlas = buildGlyphAtlas(raw, { charset: "ABC" });
+    const decodeAtlas = buildGlyphAtlas(raw, { charset: "BAC" });
+    const startX = 2;
+    const line = lineFromTintedAtlasText("AC", { atlas: renderAtlas, startX });
+    const result = decodeLine(decodeAtlas, line, { startX, endX: startX + 2 });
+    const disabled = decodeLine(decodeAtlas, line, { startX, endX: startX + 2, useOverhangEvidence: false });
+
+    expect(result.text).toBe("AC");
+    expect(disabled.text).toBe("BC");
+    expect(result.score).toBeGreaterThan(disabled.score);
+  });
+
+  it.each([
+    { rendered: "A", expected: "A" },
+    { rendered: "B", expected: "B" },
+  ])("uses final overhang evidence to decode $rendered", ({ rendered, expected }) => {
+    const raw: RawGlyphSpec[] = [
+      rawGlyph("B", 1, [255]),
+      rawGlyph("A", 2, [255, 128]),
+    ];
+    const renderAtlas = buildGlyphAtlas(raw, { charset: "AB" });
+    const decodeAtlas = buildGlyphAtlas(raw, { charset: "BA" });
+    const startX = 2;
+    const line = lineFromTintedAtlasText(rendered, { atlas: renderAtlas, startX });
+    const result = decodeLine(decodeAtlas, line, { startX, endX: startX + 1 });
+    expect(result.text).toBe(expected);
+  });
+
   it.each([
     "Shedinja420 used Onyx Apple",
     "qwertylL used Ssiws Cheese",
@@ -182,6 +223,17 @@ describe("decodeLine synthetic slices", () => {
     expect(result.decisions[0]).toMatchObject({ kind: "token" });
   });
 });
+
+function rawGlyph(char: string, templateWidth: number, initialWeights: number[]): RawGlyphSpec {
+  const weights = new Uint8Array(GLYPH_HEIGHT * templateWidth);
+  weights.set(initialWeights);
+  return {
+    char,
+    width: 1,
+    anchorKey: String.fromCharCode(initialWeights[0] === 0 ? 2 : 1),
+    weightsB64: btoa(String.fromCharCode(...weights)),
+  };
+}
 
 describe("decodeLine ClearType BGR slices", () => {
   it("decodes a real BGR-rendered line when the BGR atlas is provided explicitly", async () => {

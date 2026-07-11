@@ -1,4 +1,4 @@
-import type { Glyph, GlyphAtlas } from "./atlas";
+import { blendGlyphWeights, type Glyph, type GlyphAtlas } from "./atlas";
 import { evidenceAt, type LineAnchors } from "./preprocess";
 import { rerankCandidates, type RankedCandidate } from "./rerank";
 
@@ -58,7 +58,7 @@ export type DecodeResult = {
   decisions: DecodeDecision[];
 };
 
-type BeamState = DecodeResult;
+type BeamState = DecodeResult & { lastGlyph?: Glyph };
 
 export type DecodeOptions = {
   startX: number;
@@ -68,6 +68,8 @@ export type DecodeOptions = {
   confidenceFloor?: number;
   tokenList?: readonly DecodeToken[];
   denylist?: string;
+  /** Use stored right-overhang pixels as sequence evidence. Defaults to true. */
+  useOverhangEvidence?: boolean;
 };
 
 const TOKEN_SCORE = 1;
@@ -148,6 +150,7 @@ export function decodeLine(atlas: GlyphAtlas, line: LineAnchors, options: Decode
   const confidenceFloor = options.confidenceFloor ?? 0.25;
   const tokenList = options.tokenList ?? [];
   const denylist = new Set(options.denylist ?? "");
+  const useOverhangEvidence = options.useOverhangEvidence ?? true;
 
   let beams: BeamState[] = [{ text: "", x: startX, score: 0, decisions: [] }];
   let bestFinished: BeamState | undefined;
@@ -170,21 +173,31 @@ export function decodeLine(atlas: GlyphAtlas, line: LineAnchors, options: Decode
 
     for (const beam of beams) {
       if (beam.x === endX) {
-        if (!bestFinished || beam.score > bestFinished.score) bestFinished = beam;
+        const finished = {
+          ...beam,
+          score: beam.score + (useOverhangEvidence ? overhangFitImprovement(line, beam.x, beam.lastGlyph) : 0),
+        };
+        if (!bestFinished || finished.score > bestFinished.score) bestFinished = finished;
         continue;
       }
       if (beam.x > endX) continue;
 
-      const tokenDecision = firstTokenDecision(tokenList, atlas, line, beam, endX, denylist);
+      const tokenDecision = firstTokenDecision(tokenList, atlas, line, beam, endX, denylist, useOverhangEvidence);
       if (tokenDecision) {
         const nextBeam: BeamState = {
           text: beam.text + tokenDecision.selected.token.text,
           x: beam.x + tokenDecision.selected.token.anchorKey.length,
           score: beam.score + tokenDecision.selected.pairwiseScore,
           decisions: [...beam.decisions, tokenDecision],
+          lastGlyph: tokenDecision.selected.token.glyphs.at(-1) ?? beam.lastGlyph,
         };
 
-        if (tokenDecision.selected.token.terminate) return nextBeam;
+        if (tokenDecision.selected.token.terminate) {
+          if (useOverhangEvidence && nextBeam.x === endX) {
+            nextBeam.score += overhangFitImprovement(line, nextBeam.x, nextBeam.lastGlyph);
+          }
+          return publicDecodeResult(nextBeam);
+        }
         if (nextBeam.x <= endX) next.push(nextBeam);
         continue;
       }
@@ -209,8 +222,10 @@ export function decodeLine(atlas: GlyphAtlas, line: LineAnchors, options: Decode
         next.push({
           text: beam.text + cand.glyph.char,
           x: beam.x + cand.glyph.width,
-          score: beam.score + cand.pairwiseScore,
+          score: beam.score + cand.pairwiseScore
+            + (useOverhangEvidence ? overhangFitImprovement(line, beam.x, beam.lastGlyph, cand.glyph) : 0),
           decisions: [...beam.decisions, decision],
+          lastGlyph: cand.glyph,
         });
       }
     }
@@ -225,9 +240,12 @@ export function decodeLine(atlas: GlyphAtlas, line: LineAnchors, options: Decode
     beams = next.slice(0, beamSize);
   }
 
-  if (bestFinished) return bestFinished;
+  if (bestFinished) return publicDecodeResult(bestFinished);
   if (beams.length > 0) {
-    return beams.reduce((best, cur) => (cur.x > best.x || (cur.x === best.x && cur.score > best.score) ? cur : best));
+    const best = beams.reduce((previous, current) => (
+      current.x > previous.x || (current.x === previous.x && current.score > previous.score) ? current : previous
+    ));
+    return publicDecodeResult(best);
   }
   return { text: "", x: startX, score: Number.NEGATIVE_INFINITY, decisions: [] };
 }
@@ -239,6 +257,7 @@ function firstTokenDecision(
   beam: BeamState,
   endX: number,
   denylist: ReadonlySet<string>,
+  useOverhangEvidence: boolean,
 ): DecodeTokenDecision | undefined {
   for (let priorityIndex = 0; priorityIndex < tokenList.length; priorityIndex++) {
     const token = tokenList[priorityIndex];
@@ -246,6 +265,9 @@ function firstTokenDecision(
     if (!token.terminate && beam.x + token.anchorKey.length > endX) continue;
 
     const tokenScore = glyphSequenceFitScore(line, beam.x, token.glyphs);
+    const overhangScore = useOverhangEvidence
+      ? glyphSequenceOverhangScore(line, beam.x, beam.lastGlyph, token.glyphs)
+      : 0;
     const glyphScore = token.acceptOnAnchorMatch
       ? undefined
       : bestGlyphOnlyFitScore(atlas, line, beam.x, beam.x + token.anchorKey.length, denylist);
@@ -253,7 +275,7 @@ function firstTokenDecision(
 
     const selected: RankedTokenCandidate = {
       token,
-      pairwiseScore: TOKEN_SCORE + tokenScore,
+      pairwiseScore: TOKEN_SCORE + tokenScore + overhangScore,
       wins: tokenList.length - priorityIndex,
       priorityIndex,
     };
@@ -269,6 +291,58 @@ function firstTokenDecision(
     };
   }
   return undefined;
+}
+
+function publicDecodeResult(beam: BeamState): DecodeResult {
+  const { lastGlyph: _lastGlyph, ...result } = beam;
+  return result;
+}
+
+function glyphSequenceOverhangScore(
+  line: LineAnchors,
+  x: number,
+  previous: Glyph | undefined,
+  glyphs: readonly Glyph[],
+): number {
+  let score = 0;
+  for (const glyph of glyphs) {
+    score += overhangFitImprovement(line, x, previous, glyph);
+    previous = glyph;
+    x += glyph.width;
+  }
+  return score;
+}
+
+/** Incremental fit gained by compositing a previous glyph's right overhang
+ * with the next glyph, or with blank space at the end of a line. */
+function overhangFitImprovement(
+  line: LineAnchors,
+  x: number,
+  previous: Glyph | undefined,
+  current?: Glyph,
+): number {
+  if (!previous || previous.visualWidth === previous.width) return 0;
+  const overhangWidth = previous.visualWidth - previous.width;
+  let improvement = 0;
+  let pixels = 0;
+
+  for (let y = 0; y < line.height; y++) {
+    for (let dx = 0; dx < overhangWidth; dx++) {
+      const overhang = previous.weights[y * previous.visualWidth + previous.width + dx] / 255;
+      if (overhang === 0) continue;
+      const baseline = current && dx < current.width
+        ? current.weights[y * current.visualWidth + dx] / 255
+        : 0;
+      const composite = blendGlyphWeights(overhang, baseline);
+      const actual = evidenceAt(line, x + dx, y);
+      const baselineDiff = actual - baseline;
+      const compositeDiff = actual - composite;
+      improvement += baselineDiff * baselineDiff - compositeDiff * compositeDiff;
+      pixels += 1;
+    }
+  }
+
+  return pixels === 0 ? 0 : improvement / pixels;
 }
 
 function glyphSequenceFitScore(line: LineAnchors, x: number, glyphs: readonly Glyph[]): number {

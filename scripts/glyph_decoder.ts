@@ -42,6 +42,7 @@ type CommonOptions = {
   beamSize: number;
   branchLimit: number;
   confidenceFloor: number;
+  useOverhangEvidence: boolean;
 };
 
 type TestOptions = CommonOptions & {
@@ -114,6 +115,10 @@ function applyCommonOption(opts: CommonOptions, args: string[], index: number): 
     opts.confidenceFloor = parseNumber(args[index + 1], opts.confidenceFloor);
     return index + 1;
   }
+  if (arg === "--no-overhang-evidence") {
+    opts.useOverhangEvidence = false;
+    return index;
+  }
   return -1;
 }
 
@@ -125,6 +130,7 @@ function parseCommon(args: string[]): CommonOptions {
     beamSize: 12,
     branchLimit: 8,
     confidenceFloor: 0.25,
+    useOverhangEvidence: true,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -144,6 +150,7 @@ function parseTestOptions(args: string[]): TestOptions {
     beamSize: 12,
     branchLimit: 8,
     confidenceFloor: 0.25,
+    useOverhangEvidence: true,
     expected: DEFAULT_EXPECTED_PATH,
     slicesDir: DEFAULT_SLICES_DIR,
     startX: 57,
@@ -195,6 +202,7 @@ async function selfTest(argv: string[]): Promise<number> {
       beamSize: opts.beamSize,
       branchLimit: opts.branchLimit,
       confidenceFloor: opts.confidenceFloor,
+      useOverhangEvidence: opts.useOverhangEvidence,
     });
     const ok = decoded.text === item.expected ? "OK" : "DIFF";
     console.log(`${item.name}: parsed=${JSON.stringify(decoded.text)} expected=${JSON.stringify(item.expected)} ${ok}`);
@@ -218,6 +226,7 @@ async function trace(argv: string[]): Promise<number> {
       beamSize: opts.beamSize,
       branchLimit: opts.branchLimit,
       confidenceFloor: opts.confidenceFloor,
+      useOverhangEvidence: opts.useOverhangEvidence,
     });
     const layout = expectedLayout(atlas, item.expected, item.startX);
 
@@ -292,6 +301,7 @@ async function decode(argv: string[]): Promise<number> {
     beamSize: opts.beamSize,
     branchLimit: opts.branchLimit,
     confidenceFloor: opts.confidenceFloor,
+    useOverhangEvidence: opts.useOverhangEvidence,
   });
   console.log(decoded.text);
   return 0;
@@ -332,6 +342,7 @@ async function benchmark(argv: string[]): Promise<number> {
   const diffs: Array<{ id: string; expected: string; actual: string }> = [];
   const errors: Array<{ id: string; error: string }> = [];
   let decodeSeconds = 0;
+  let totalScore = 0;
 
   for (const entry of expectedEntries) {
     const imagePath = path.join(opts.slicesDir, `${entry.id}.png`);
@@ -345,8 +356,10 @@ async function benchmark(argv: string[]): Promise<number> {
         beamSize: opts.beamSize,
         branchLimit: opts.branchLimit,
         confidenceFloor: opts.confidenceFloor,
+        useOverhangEvidence: opts.useOverhangEvidence,
       });
       decodeSeconds += (performance.now() - startTime) / 1000.0;
+      totalScore += decoded.score;
 
       total += 1;
       if (decoded.text === entry.text) {
@@ -364,6 +377,7 @@ async function benchmark(argv: string[]): Promise<number> {
   console.log(`matches=${matches}`);
   console.log(`diffs=${diffs.length}`);
   console.log(`errors=${errors.length}`);
+  if (total > 0) console.log(`mean_score=${(totalScore / total).toFixed(6)}`);
   console.log(`decode_seconds=${decodeSeconds.toFixed(6)}`);
   if (total > 0) {
     console.log(`decode_ms_per_image=${((decodeSeconds / total) * 1000.0).toFixed(3)}`);
@@ -411,6 +425,7 @@ Options:
   --beam-size N            beam size for left-to-right decode
   --branch-limit N         ranked candidates expanded per beam
   --confidence-floor F     midpoint diff confidence floor
+  --no-overhang-evidence   disable right-overhang sequence scoring
 `);
 }
 
