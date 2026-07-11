@@ -40,6 +40,12 @@ type PngImage = {
   data: Uint8Array;
 };
 
+export type OverhangDiff = {
+  left: number;
+  right: number;
+  rightWeights: Uint8Array;
+};
+
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const LEVEL_TO_WEIGHT_U8 = new Map<number, number>([
@@ -228,7 +234,38 @@ function cropAnchorKey(png: PngImage, originX: number, width: number): string {
   return String.fromCharCode(...cols);
 }
 
-function cropWeightsB64(png: PngImage, originX: number, width: number): string {
+/** Compare the aligned zeros in a 0x0 sample and isolate the middle glyph's
+ * contribution on either side of its logical advance. */
+export function detectOverhang(firstZero: Uint8Array, lastZero: Uint8Array, zeroWidth: number): OverhangDiff {
+  const expectedLength = GLYPH_HEIGHT * zeroWidth;
+  if (firstZero.length !== expectedLength || lastZero.length !== expectedLength) {
+    throw new Error(`zero comparison length mismatch: expected ${expectedLength}, got ${firstZero.length}/${lastZero.length}`);
+  }
+
+  const rightWeights = new Uint8Array(expectedLength);
+  let left = 0;
+  let right = 0;
+
+  for (let y = 0; y < GLYPH_HEIGHT; y++) {
+    for (let col = 0; col < zeroWidth; col++) {
+      const i = y * zeroWidth + col;
+      const diff = firstZero[i] - lastZero[i];
+      if (diff > 0) {
+        left = Math.max(left, zeroWidth - col);
+      } else if (diff < 0) {
+        rightWeights[i] = -diff;
+        right = Math.max(right, col + 1);
+      }
+    }
+  }
+
+  if (left + right > zeroWidth) {
+    throw new Error(`ambiguous zero comparison: left=${left} right=${right} zeroWidth=${zeroWidth}`);
+  }
+  return { left, right, rightWeights };
+}
+
+function cropWeights(png: PngImage, originX: number, width: number): Uint8Array {
   const weights = new Uint8Array(GLYPH_HEIGHT * width);
   for (let y = 0; y < GLYPH_HEIGHT; y++) {
     for (let col = 0; col < width; col++) {
@@ -237,7 +274,25 @@ function cropWeightsB64(png: PngImage, originX: number, width: number): string {
       weights[y * width + col] = weightFromGray(gray);
     }
   }
-  return Buffer.from(weights).toString("base64");
+  return weights;
+}
+
+export function appendRightOverhang(
+  logical: Uint8Array,
+  width: number,
+  overhang: OverhangDiff,
+  zeroWidth: number,
+): Uint8Array {
+  if (overhang.left !== 0) throw new Error(`left overhang is unsupported: ${overhang.left}px`);
+  const visualWidth = width + overhang.right;
+  const out = new Uint8Array(GLYPH_HEIGHT * visualWidth);
+  for (let y = 0; y < GLYPH_HEIGHT; y++) {
+    out.set(logical.subarray(y * width, (y + 1) * width), y * visualWidth);
+    for (let dx = 0; dx < overhang.right; dx++) {
+      out[y * visualWidth + width + dx] = overhang.rightWeights[y * zeroWidth + dx];
+    }
+  }
+  return out;
 }
 
 async function buildRawGlyphs(glyphDir: string, originX: number): Promise<RawGlyphSpec[]> {
@@ -260,11 +315,21 @@ async function buildRawGlyphs(glyphDir: string, originX: number): Promise<RawGly
 
     const width = trailingOffsets[0] - zeroWidth;
     const cropOriginX = originX + zeroWidth;
+    const firstZeroWeights = cropWeights(png, originX, zeroWidth);
+    const lastZeroWeights = cropWeights(png, cropOriginX + width, zeroWidth);
+    let overhang: OverhangDiff;
+    try {
+      overhang = detectOverhang(firstZeroWeights, lastZeroWeights, zeroWidth);
+      if (overhang.left !== 0) throw new Error(`left overhang is unsupported: ${overhang.left}px`);
+    } catch (error) {
+      throw new Error(`could not infer visual bounds for ${JSON.stringify(char)} from ${name}`, { cause: error });
+    }
+    const logicalWeights = cropWeights(png, cropOriginX, width);
     raw.push({
       char,
       width,
       anchorKey: cropAnchorKey(png, cropOriginX, width),
-      weightsB64: cropWeightsB64(png, cropOriginX, width),
+      weightsB64: Buffer.from(appendRightOverhang(logicalWeights, width, overhang, zeroWidth)).toString("base64"),
     });
   }
 
@@ -306,7 +371,9 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

@@ -32,8 +32,8 @@ export function midpointPairwiseMargin(
   for (let y = 0; y < GLYPH_HEIGHT; y++) {
     const compareWidth = Math.min(glyphA.width, glyphB.width);
     for (let col = 0; col < compareWidth; col++) {
-      const wa = col < glyphA.width ? glyphA.weights[y * glyphA.width + col] / 255 : 0;
-      const wb = col < glyphB.width ? glyphB.weights[y * glyphB.width + col] / 255 : 0;
+      const wa = glyphA.weights[y * glyphA.visualWidth + col] / 255;
+      const wb = glyphB.weights[y * glyphB.visualWidth + col] / 255;
       const signed = wa - wb;
       const diff = Math.abs(signed);
       if (diff === 0) continue;

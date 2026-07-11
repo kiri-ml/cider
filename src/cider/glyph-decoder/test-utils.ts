@@ -29,7 +29,7 @@ export function imageFromTintedAtlasText(
 
     for (let dx = 0; dx < glyph.width; dx++) {
       for (let y = 0; y < GLYPH_HEIGHT; y++) {
-        const weight = glyph.weights[y * glyph.width + dx];
+        const weight = glyph.weights[y * glyph.visualWidth + dx];
         if (weight === 0) continue;
 
         const i = (y * width + x + dx) * 4;

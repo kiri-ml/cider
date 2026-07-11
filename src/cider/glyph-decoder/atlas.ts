@@ -1,11 +1,12 @@
-import { CHARSET_PRINTABLE_ASCII } from "./constants";
+import { CHARSET_PRINTABLE_ASCII, GLYPH_HEIGHT } from "./constants";
 
 export type RawGlyphSpec = {
   char: string;
+  /** Logical cursor advance. */
   width: number;
   /** One UTF-16 code unit per 12px anchor column. */
   anchorKey: string;
-  /** Base64 encoded Uint8Array, row-major, length = 12 * width. */
+  /** Base64 encoded Uint8Array, row-major, with optional right overhang. */
   weightsB64: string;
 };
 
@@ -14,6 +15,8 @@ export type Glyph = {
   width: number;
   anchorKey: string;
   weights: Uint8Array;
+  /** Row stride of weights; may exceed the logical width due to right overhang. */
+  visualWidth: number;
   orderIndex: number;
 };
 
@@ -80,13 +83,24 @@ export function buildGlyphAtlas(
     selectedRaw.push(raw);
   }
 
-  const glyphs: Glyph[] = selectedRaw.map((raw, fallbackIndex) => ({
-    char: raw.char,
-    width: raw.width,
-    anchorKey: raw.anchorKey,
-    weights: decodeBase64Bytes(raw.weightsB64),
-    orderIndex: order.get(raw.char) ?? fallbackIndex,
-  }));
+  const glyphs: Glyph[] = selectedRaw.map((raw, fallbackIndex) => {
+    const weights = decodeBase64Bytes(raw.weightsB64);
+    if (weights.length % GLYPH_HEIGHT !== 0) {
+      throw new Error(`glyph ${JSON.stringify(raw.char)} has invalid weight length: ${weights.length}`);
+    }
+    const visualWidth = weights.length / GLYPH_HEIGHT;
+    if (visualWidth < raw.width) {
+      throw new Error(`glyph ${JSON.stringify(raw.char)} visual width ${visualWidth} is less than logical width ${raw.width}`);
+    }
+    return {
+      char: raw.char,
+      width: raw.width,
+      anchorKey: raw.anchorKey,
+      weights,
+      visualWidth,
+      orderIndex: order.get(raw.char) ?? fallbackIndex,
+    };
+  });
 
   return buildLookupAtlas(glyphs);
 }

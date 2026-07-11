@@ -429,7 +429,7 @@ export const RAW_GLYPHS: RawGlyphSpec[] = [
     char: "f",
     width: 3,
     anchorKey: "\b\n\u0002",
-    weightsB64: "AAAABf//KlAA//+OKlAAKlAAKlAAKlAAKlAAKlAAAAAAAAAA",
+    weightsB64: "AAAAAAX//wUqUAAA//+OACpQAAAqUAAAKlAAACpQAAAqUAAAKlAAAAAAAAAAAAAA",
   },
   {
     char: "g",
@@ -549,7 +549,7 @@ export const RAW_GLYPHS: RawGlyphSpec[] = [
     char: "z",
     width: 5,
     anchorKey: "ȈȈȈȈȀ",
-    weightsB64: "AAAAAAAAAAAAAAAAAAAA/////yQAAAWOAAAAjgUAACoqAAAFjgAAAI4FAAAA//////8AAAAAAAAAAAAA",
+    weightsB64: "AAAAAAAAAAAAAAAAAAAAAAAA/////yQAAAAFjgAAAACOBQAAACoqAAAABY4AAAAAjgUAAAAA//////8FAAAAAAAAAAAAAAAA",
   },
   {
     char: "{",

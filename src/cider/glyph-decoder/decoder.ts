@@ -323,7 +323,7 @@ function glyphFitError(line: LineAnchors, x: number, glyph: Glyph): { error: num
 
   for (let y = 0; y < line.height; y++) {
     for (let dx = 0; dx < glyph.width; dx++) {
-      const expected = glyph.weights[y * glyph.width + dx] / 255;
+      const expected = glyph.weights[y * glyph.visualWidth + dx] / 255;
       const actual = evidenceAt(line, x + dx, y);
       const diff = actual - expected;
       error += diff * diff;
