@@ -538,7 +538,10 @@ async function blobToRgbaImage(blob: Blob): Promise<RgbaImage> {
 async function loadBlobBitmap(blob: Blob): Promise<ImageBitmap | HTMLImageElement> {
   if (typeof createImageBitmap === "function") {
     try {
-      return await createImageBitmap(blob);
+      return await createImageBitmap(blob, {
+        colorSpaceConversion: "none",
+        premultiplyAlpha: "none",
+      });
     } catch {
       throw new Error("Could not decode PNG image");
     }

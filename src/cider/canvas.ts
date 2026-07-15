@@ -38,7 +38,10 @@ export async function canvasToPngBlob(canvas: AnyCanvas): Promise<Blob> {
 export async function loadBitmap(file: File): Promise<ImageBitmap | HTMLImageElement> {
   if (typeof createImageBitmap === "function") {
     try {
-      return await createImageBitmap(file);
+      return await createImageBitmap(file, {
+        colorSpaceConversion: "none",
+        premultiplyAlpha: "none",
+      });
     } catch {
       throw new Error("Could not decode PNG image");
     }
